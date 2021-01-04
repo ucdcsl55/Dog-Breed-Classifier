@@ -2,8 +2,8 @@
 
 This project is about detecting human face and dog presence in any given image.
 If there is a dog presence, then the algo will predict the likely canine's breed.
-But the funny part of this exercise if, the end output will identify the resembling dog breed :)
-Before we come to that, this exercise creates 3 broad parts:
+But the funny part of this exercise is.... at the end output of the project, we are asked to identify a human face to a resembling dog breed :)
+Before we come to the end, this exercise actually has 3 broad parts:
 
 #Detect Humans using cv2
 
