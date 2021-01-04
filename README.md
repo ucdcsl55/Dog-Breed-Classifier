@@ -1,6 +1,4 @@
-# Dog-Breed-Classifier
-Udacity assignment - project 2
-
+# Project 2 - Dog-Breed-Classifier from Udacity 
 
 This project is about detecting human face and dog presence in any given image.
 If there is a dog presence, then the algo will predict the likely canine's breed.
