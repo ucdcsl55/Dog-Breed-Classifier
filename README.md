@@ -8,12 +8,16 @@ Once the Vgg16 algo is developed, we continue by using CNN architecture to predi
 But the funny part of this exercise is.... at the end output of the project, we are asked to identify a human face to a resembling dog breed :)
 Before we come to the end, this exercise actually has 3 broad parts:
 
+*****************************************************************************************************
+
 # Part 1 | Detect Humans using OpenCV
 ## Human Face Detector
 The submission returns the percentage of the first 100 images in the dog and human face datasets that include a detected, human face.
 ### Accuracy Rate
 There are 98.0% human faces detected in human_files.
 There are 17.0% human faces detected in dog_files.
+
+*****************************************************************************************************
 
 # Part 2 | Detect Dogs using VGG16Net
 ### Dog Presence Detector
@@ -22,7 +26,10 @@ Used a pre-trained VGG16Net model to find the predicted class for a given image.
 There are 1.0% dog images detected in human_files.
 There are 100.0% dog images detected in dog_files.
 
-# Create a CNN to Classify Dog Breeds
+
+*****************************************************************************************************
+
+# Part 3 | Create a CNN to Classify Dog Breeds
 Two approaches applied for better understanding of the algo.
 
 (i) __Scratch__ - apply CNN trained model which has a series of functions. But this scratch model attains only 11% accuracy on the test set.
@@ -78,17 +85,9 @@ The detailed logical steps on #2 above are:-
               - self.batch_norm1 - mainly to make model faster and more stable by re-centering and re-scaling
 
 The final CNN model should look like the expression below:
+  ![model_scratch]https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/model_scratch.png?raw=true
 
-    (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
-    (fc1): Linear(in_features=50176, out_features=1024, bias=True)
-    (fc2): Linear(in_features=1024, out_features=512, bias=True)
-    (fc3): Linear(in_features=512, out_features=133, bias=True)
-    (dropout): Dropout(p=0.25)
-    (batch_norm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-
+*****************************************************************************************************
 
 (ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 72%.
   
