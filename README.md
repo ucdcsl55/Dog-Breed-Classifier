@@ -28,8 +28,11 @@ Two approaches applied for better understanding of the algo.
 (i) __Scratch__ - apply CNN trained model which has a series of functions. But this scratch model attains only 11% accuracy on the test set.
 
   #1. Firstly, examine the shape of the image, which has 3 RGB colors and its a 224X224 pixel image.
+  
        - torch.Size([32, 3, 224, 224]). Note 32 is batch size.
+       
   #2. Then start by applying convolutional layers, max pooling, dropout, batch normalisation, fully-connected layers and lastly defining the feedforward behaviour.
+       
        - Conv2D:: self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding).
            - We can use the spatial dimension formula to keep changing XY through the layers: [(W−K+2P)/S]+1
        - MaxPool2D:: nn.MaxPool2d(kernel_size, stride, padding, dilation, ceil_mode)
@@ -89,7 +92,8 @@ The final CNN model should look like the expression below:
 
 (ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 72%.
 
-    As this approach is using an existing pre-trained model, it makes the codes lot easier. All we need to add a last linear layer 
+  As this approach is using an existing pre-trained model, it makes the codes lot easier. All we need is to add a last linear layer.
+   
         # Check the number of dog breed in the training dataset
         num_dog_breed = len(train_data.class_to_idx)
         # Update the last layer
