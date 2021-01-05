@@ -89,7 +89,7 @@ The final CNN model should look like the expression below:
 
 *****************************************************************************************************
 
-(ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 72%.
+(ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 75%.
   
   The following image provides a good summary of what needs to be modified if the datasets we training are somewhat different from the original data.
       ![Transfer_Learning](https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/Transfer_Learning.png?raw=true)
