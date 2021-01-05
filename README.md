@@ -101,6 +101,8 @@ The final CNN model should look like the expression below:
         # Update the last layer
         num_features = model_transfer.fc.in_features
         model_transfer.fc = nn.Linear(num_features, num_dog_breed)
-    
+
+*****************************************************************************************************
+
 # Conclusion
 This project led me to develop an CNN model architecture from scratch. Details on layers of Conv2D, max pooling, dropout to prevent overfitting, batch normalisation to optimise the steps, apply criterion (MSE, CrossEntropyLoss etc) and optimizer (SGD, Adam etc) and the benefits gained using transfer learning.
