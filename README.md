@@ -46,35 +46,44 @@ Two approaches applied for better understanding of the algo.
                 - nn.Dropout(0.25)  
 
 The detailed logical steps on #2 above are:-
+    
     - Applied 3 Convolutional Layers
         - Converts image tensor (224,224,3) -- self.conv1 = nn.Conv2d(3,32,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (112,112,16)
+            
         - Converts second level via -- self.conv1 = nn.Conv2d(32,64,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (56,56,32)
+            
         - Converst third level via -- self.conv2 = nn.Conv2d(64,128,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (28,28,64)
 
     - Applied 2 Fully-connected Layers
         - First layer will responsible for taking as input of my final downside stack of feature maps above.
         - nn.Linear(224*224, 1024) 
+        
         - Second layer takes in the output from the first layer
         - nn.Linear(1024, 512) 
+        
         - Third layer takes in the output from second layer and produce the final output of 133 breed types.
-        - nn.Linear(512, 133) -- Note, 133 represents the total number of dog breed in the train dataset.
+        - nn.Linear(512, 133) 
+        Note, 133 represents the total number of dog breed in the train dataset.
 
     - Used standard Feedfoward behaviour
         - This takes in a sequence of function actions.
-            - First it takes the output from each Convolutional layer, then apply ReLu activation function
+        
+            - First it takes the output from each Convolutional layer, then apply ReLu activation function.
+            
             - Then apply max pooling layer(s), flatten the image and add dropout to prevent overfitting.
-            - Last use the batch normalization function
+            
+            - Last use the batch normalization function.
 
-            - self.pool(F.relu(self.conv1(x))) -- repeat this for each convolutional layer.
-            - x.view(-1, x.size(0)) then take the end resultant from the convolutional layers and flattens into a vector 
-            shape.
-            - self.dropout(x) - adding a dropout layers to prevent overfitting
-            - self.batch_norm1 - mainly to make model faster and more stable by re-centering and re-scaling
+              - self.pool(F.relu(self.conv1(x))) -- repeat this for each convolutional layer.
+              - x.view(-1, x.size(0)) then take the end resultant from the convolutional layers and flattens into a vector shape.
+              - self.dropout(x) - adding a dropout layers to prevent overfitting
+              - self.batch_norm1 - mainly to make model faster and more stable by re-centering and re-scaling
 
-The final CNN model should look like the expression below:-
+The final CNN model should look like the expression below:
+
 Net(
     (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
