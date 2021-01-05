@@ -55,13 +55,11 @@ The detailed logical steps on #2 above are:-
         - Converst third level via -- self.conv2 = nn.Conv2d(64,128,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (28,28,64)
 
-    - Applied 2 Fully-connected Layers
+    - Applied 3 Fully-connected Layers
         - First layer will responsible for taking as input of my final downside stack of feature maps above.
         - nn.Linear(224*224, 1024) 
-        
         - Second layer takes in the output from the first layer
         - nn.Linear(1024, 512) 
-        
         - Third layer takes in the output from second layer and produce the final output of 133 breed types.
         - nn.Linear(512, 133) 
         Note, 133 represents the total number of dog breed in the train dataset.
@@ -71,15 +69,12 @@ The detailed logical steps on #2 above are:-
             - First it takes the output from each Convolutional layer, then apply ReLu activation function.
             - Then apply max pooling layer(s), flatten the image and add dropout to prevent overfitting.
             - Last use the batch normalization function.
-
               - self.pool(F.relu(self.conv1(x))) -- repeat this for each convolutional layer.
               - x.view(-1, x.size(0)) then take the end resultant from the convolutional layers and flattens into a vector shape.
               - self.dropout(x) - adding a dropout layers to prevent overfitting
               - self.batch_norm1 - mainly to make model faster and more stable by re-centering and re-scaling
 
 The final CNN model should look like the expression below:
-
-Net(
 
     (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
@@ -90,17 +85,16 @@ Net(
     (fc3): Linear(in_features=512, out_features=133, bias=True)
     (dropout): Dropout(p=0.25)
     (batch_norm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-   
-   )
+
 
 (ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 72%.
 
     As this approach is using an existing pre-trained model, it makes the codes lot easier. All we need to add a last linear layer 
-    # Check the number of dog breed in the training dataset
-    num_dog_breed = len(train_data.class_to_idx)
-    # Update the last layer
-    num_features = model_transfer.fc.in_features
-    model_transfer.fc = nn.Linear(num_features, num_dog_breed)
+        # Check the number of dog breed in the training dataset
+        num_dog_breed = len(train_data.class_to_idx)
+        # Update the last layer
+        num_features = model_transfer.fc.in_features
+        model_transfer.fc = nn.Linear(num_features, num_dog_breed)
     
 # Conclusion
 This project led me to develop an CNN model architecture from scratch. Details on layers of Conv2D, max pooling, dropout to prevent overfitting, batch normalisation to optimise the steps, apply criterion (MSE, CrossEntropyLoss etc) and optimizer (SGD, Adam etc) and the benefits gained using transfer learning.
