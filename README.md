@@ -85,7 +85,7 @@ The detailed logical steps on #2 above are:-
               - self.batch_norm1 - mainly to make model faster and more stable by re-centering and re-scaling
 
 The final CNN model should look like the expression below:
-  ![model_scratch]https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/model_scratch.png?raw=true
+  ![model_scratch](https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/model_scratch.png?raw=true)
 
 *****************************************************************************************************
 
