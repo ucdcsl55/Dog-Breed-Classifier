@@ -50,10 +50,8 @@ The detailed logical steps on #2 above are:-
     - Applied 3 Convolutional Layers
         - Converts image tensor (224,224,3) -- self.conv1 = nn.Conv2d(3,32,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (112,112,16)
-            
         - Converts second level via -- self.conv1 = nn.Conv2d(32,64,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (56,56,32)
-            
         - Converst third level via -- self.conv2 = nn.Conv2d(64,128,kernel,stride,padding) -- nn.MaxPool2d(2, 2)
             ==> (28,28,64)
 
@@ -70,11 +68,8 @@ The detailed logical steps on #2 above are:-
 
     - Used standard Feedfoward behaviour
         - This takes in a sequence of function actions.
-        
             - First it takes the output from each Convolutional layer, then apply ReLu activation function.
-            
             - Then apply max pooling layer(s), flatten the image and add dropout to prevent overfitting.
-            
             - Last use the batch normalization function.
 
               - self.pool(F.relu(self.conv1(x))) -- repeat this for each convolutional layer.
@@ -85,6 +80,7 @@ The detailed logical steps on #2 above are:-
 The final CNN model should look like the expression below:
 
 Net(
+
     (conv1): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
@@ -94,6 +90,7 @@ Net(
     (fc3): Linear(in_features=512, out_features=133, bias=True)
     (dropout): Dropout(p=0.25)
     (batch_norm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+   
    )
 
 (ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 72%.
