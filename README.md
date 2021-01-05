@@ -91,40 +91,9 @@ The final CNN model should look like the expression below:
 
 
 (ii) __Transfer Learning__ - apply on an existing pre-trained model architecture. This provides an accuracy on the test set of 72%.
-    ![Transfer_Learning](https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/Transfer_Learning.png?raw=true)
-
-            Case 1: Small Data Set, Similar Data            
-            If the new data set is small and similar to the original training data:
-
-            -slice off the end of the neural network
-            -add a new fully connected layer that matches the number of classes in the new data set
-            -randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
-            -train the network to update the weights of the new fully connected layer"	
-            
-            
-            Case 2: Small Data Set, Different Data
-            If the new data set is small and different from the original training data:
-
-            -slice off all but some of the pre-trained layers near the beginning of the network
-            -add to the remaining pre-trained layers a new fully connected layer that matches the number of classes in the new data set
-            -randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
-            -train the network to update the weights of the new fully connected layer"
-
-            Case 3: Large Data Set, Similar Data
-            If the new data set is large and similar to the original training data:
-
-            -remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
-            -randomly initialize the weights in the new fully connected layer
-            -initialize the rest of the weights using the pre-trained weights
-            -re-train the entire neural network"	
-            
-            Case 4: Large Data Set, Different Data
-            If the new data set is large and different from the original training data:
-
-            -remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
-            -retrain the network from scratch with randomly initialized weights
-            -alternatively, you could just use the same strategy as the ""large and similar"" data case"
-
+  
+  The following image provides a good summary of what needs to be modified if the datasets we training are somewhat different from the original data.
+      ![Transfer_Learning](https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/Transfer_Learning.png?raw=true)
 
   As this approach is using an existing pre-trained model, it makes the codes lot easier. All we need is to add a last linear layer. 
    
