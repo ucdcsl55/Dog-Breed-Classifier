@@ -33,9 +33,11 @@ There are 100.0% dog images detected in dog_files.
 Two approaches applied for better understanding of the algo.
 
 (i) __Scratch__ - apply CNN trained model which has a series of functions. But this scratch model attains only 11% accuracy on the test set.
+
 From formula to coding....
-![formula]((https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/MLP_formula.png?raw=true)
-![coding]((https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/MLP_function.png?raw=true)
+
+![formula](https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/MLP_formula.png?raw=true)
+![coding](https://github.com/ucdcsl55/Dog-Breed-Classifier/blob/main/MLP_function.png?raw=true)
 
   #1. Firstly, examine the shape of the image, which has 3 RGB colors and its a 224X224 pixel image.
   
